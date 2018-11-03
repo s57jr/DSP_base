@@ -25,7 +25,9 @@ SOURCES += \
     mainwindow.cpp \
     SigGen.cpp \
     uimw.cpp \
-    ../qcustomplot/qcustomplot.cpp
+    ../qcustomplot/qcustomplot.cpp \
+    overlapadd.cpp \
+    overlapsave.cpp
 
 HEADERS += \
     DSP.h \
@@ -34,7 +36,9 @@ HEADERS += \
     mainwindow.h \
     SigGen.h \
     uimw.h \
-    ../qcustomplot/qcustomplot.h
+    ../qcustomplot/qcustomplot.h \
+    overlapadd.h \
+    overlapsave.h
 
 FORMS += \
         mainwindow.ui

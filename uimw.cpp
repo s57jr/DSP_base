@@ -4,6 +4,7 @@
 
 void UIMW::setupUi(QMainWindow *MainWindow)
 {
+
     if (MainWindow->objectName().isEmpty())
         MainWindow->setObjectName(QStringLiteral("MainWindow"));
     MainWindow->resize(window_W, window_H);
@@ -83,7 +84,7 @@ void UIMW::addPlot(QMainWindow *MainWindow, QString label){
         }
 
         if(plot_num>0){
-            window_W *=1.5;
+            window_W *=1.3;
             if(plot_num == 3){
                 window_H *=2;
             }

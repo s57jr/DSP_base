@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
   QMainWindow(parent),
   ui(new Ui::MainWindow)
 {
+  this->move(100,100);
   ui->setupUi(this);
 
 }
@@ -34,11 +35,7 @@ void MainWindow::Plot(QString label,QVector<double> x, QVector<double> y)
 
   ui->plot[plotnum]->xAxis->setRange(0 , static_cast<int>(x.length()));
 
-  if(min>max){
-    ui->plot[plotnum]->yAxis->setRange(-qAbs(min), qAbs(max));
-  }else{
-    ui->plot[plotnum]->yAxis->setRange(-qAbs(max), qAbs(max));
-  }
+  ui->plot[plotnum]->yAxis->setRange(min, max);
 
 }
 
