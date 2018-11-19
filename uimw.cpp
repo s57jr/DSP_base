@@ -26,6 +26,32 @@ void UIMW::setupUi(QMainWindow *MainWindow)
 
     retranslateUi(MainWindow);
 
+    m_deviceBox = new QComboBox();
+    const QAudioDeviceInfo &defaultDeviceInfo = QAudioDeviceInfo::defaultOutputDevice();
+    m_deviceBox->addItem(defaultDeviceInfo.deviceName(), qVariantFromValue(defaultDeviceInfo));
+    for (auto &deviceInfo: QAudioDeviceInfo::availableDevices(QAudio::AudioOutput)) {
+        if (deviceInfo != defaultDeviceInfo)
+            m_deviceBox->addItem(deviceInfo.deviceName(), qVariantFromValue(deviceInfo));
+    }
+
+
+    m_suspendResumeButton = new QPushButton();
+
+    m_volumeLabel = new QLabel;
+    m_volumeLabel->setText("Volume:");
+    m_volumeSlider = new QSlider(Qt::Horizontal);
+    m_volumeSlider->setMinimum(0);
+    m_volumeSlider->setMaximum(100);
+    m_volumeSlider->setSingleStep(10);
+
+
+
+    gridLayout->addWidget(m_suspendResumeButton, 5, 0,1,3);
+    gridLayout->addWidget(m_deviceBox, 6, 0,1,3);
+    gridLayout->addWidget(m_volumeLabel, 7, 0,1,3);
+    gridLayout->addWidget(m_volumeSlider, 8, 0,1,3);
+
+
     QMetaObject::connectSlotsByName(MainWindow);
 }
 
@@ -76,11 +102,11 @@ void UIMW::addPlot(QMainWindow *MainWindow, QString label){
         graphlabel[plot_num]->setText(label);
 
         if(plot_num < 3){
-            gridLayout->addWidget(graphlabel[plot_num], 0, plot_num*2, 1, 1);
-            gridLayout->addWidget(plot[plot_num], 1, plot_num*2, 1, 1);
+            gridLayout->addWidget(graphlabel[plot_num], 0, plot_num, 1, 1);
+            gridLayout->addWidget(plot[plot_num], 1, plot_num, 1, 1);
         }else{
-            gridLayout->addWidget(graphlabel[plot_num], 3, (plot_num-3)*2, 1, 1);
-            gridLayout->addWidget(plot[plot_num], 4, (plot_num-3)*2, 1, 1);
+            gridLayout->addWidget(graphlabel[plot_num], 3, (plot_num-3), 1, 1);
+            gridLayout->addWidget(plot[plot_num], 4, (plot_num-3), 1, 1);
         }
 
         if(plot_num>0){

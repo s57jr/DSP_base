@@ -10,6 +10,10 @@
 #include <QtWidgets/QScrollBar>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
+#include <QtWidgets/QComboBox>
+#include <QAudioOutput>
+#include <QTranslator>
+#include <QThread>
 #include "../qcustomplot/qcustomplot.h"
 
 QT_BEGIN_NAMESPACE
@@ -33,7 +37,10 @@ public:
     QCustomPlot *plot[plots];
     QLabel     *graphlabel[plots];
     QStatusBar *statusBar;
-
+    QPushButton *m_suspendResumeButton = nullptr;
+    QComboBox *m_deviceBox = nullptr;
+    QLabel *m_volumeLabel = nullptr;
+    QSlider *m_volumeSlider = nullptr;
 
 
     void setupUi(QMainWindow *MainWindow);

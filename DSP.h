@@ -28,6 +28,8 @@ public:
     void display_wf(QVector<double> wf, int wflen, QString label, MainWindow *MainWindow);
     void display_wf(QVector<double> wfx, QVector<double> wfy, int wflen, QString label, MainWindow *MainWindow);
 
+
+
 };
 
 #endif /* DSP_H_ */

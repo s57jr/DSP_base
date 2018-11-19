@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport multimedia
 
 TARGET = DSP_base
 TEMPLATE = app
@@ -27,7 +27,8 @@ SOURCES += \
     uimw.cpp \
     ../qcustomplot/qcustomplot.cpp \
     overlapadd.cpp \
-    overlapsave.cpp
+    overlapsave.cpp \
+    audiobuffer.cpp
 
 HEADERS += \
     DSP.h \
@@ -38,7 +39,8 @@ HEADERS += \
     uimw.h \
     ../qcustomplot/qcustomplot.h \
     overlapadd.h \
-    overlapsave.h
+    overlapsave.h \
+    audiobuffer.h
 
 FORMS += \
         mainwindow.ui

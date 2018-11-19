@@ -7,6 +7,7 @@
 #include "FIRfilter.h"
 #include "overlapadd.h"
 #include "overlapsave.h"
+#include "audiobuffer.h"
 
 /*
  * TODO SHOULD DO:
@@ -14,6 +15,7 @@
  * 2.//HANDLE this: user should not be able to set fft length from this class, however the method in the base class is public. Setting base class as private causes error in overlapadd.h ...
  * 3. Implement functions to use QComplexNumber Class
  * 4. ovadd and ovsave can have the same base class...
+ * 5. DSP base class-> make function templates
  *
  * TODO IDEAS:
  * The overlap�save algorithm may be extended to include other common operations of a system:
